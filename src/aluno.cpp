@@ -1,6 +1,7 @@
 #include "../include/aluno.h"
 #include <iostream>
 #include "string.h"
+#include "excecoes.h"
 
 using namespace std;
 
