@@ -20,6 +20,7 @@ class Pessoa {
         string getNascimento();
         virtual bool cadastrar() = 0;
         virtual bool verificaNome(string nomeVerificacao) = 0;
+        virtual bool verificaNascimento(string Nascimento) = 0;
 };
 
 #endif

@@ -1,6 +1,7 @@
 #include "../include/tecnico.h"
 #include <iostream>
 #include "string.h"
+#include "../include/excecoes.h"
 
 using namespace std;
 

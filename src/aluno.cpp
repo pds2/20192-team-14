@@ -2,6 +2,7 @@
 //#include "../include/associado.h"
 #include <iostream>
 #include "string.h"
+#include "../include/excecoes.h"
 
 using namespace std;
 
@@ -16,9 +17,23 @@ string Aluno::getMatricula() {
 }
 
 bool Aluno::verificaNome(string nome) {
-    return true;
+    if (nome != "") {
+        return true;
+    } else {
+        
+    }
+}
+
+bool Aluno::verificaNascimento(string dataNascimento) {
+    cout << dataNascimento <<endl;
 }
 
 bool Aluno::cadastrar() {
-    // Verifica se o nome é válido
+    bool testeNome = verificaNome(_nome);
+    bool testeNascimento = verificaNascimento(_dataNascimento);
+    if (testeNome) {
+        cout << "Sucesso" <<endl;
+    } else {
+        cout << "Falha" <<endl;
+    }
 }
