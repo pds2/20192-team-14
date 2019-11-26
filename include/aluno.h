@@ -13,6 +13,8 @@ class Aluno : public Pessoa {
     public:
         Aluno(string nome,string cpf,string rg,string dataNascimento, string matricula);
         string getMatricula();
+        bool cadastrar() override;
+        bool verificaNome(string nomeVerificao) override;
 };
 
 #endif

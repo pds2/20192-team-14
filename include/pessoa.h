@@ -7,7 +7,7 @@
 using namespace std;
 
 class Pessoa {
-    private:
+    protected:
         string _nome;
         string _cpf;
         string _rg;
@@ -18,6 +18,8 @@ class Pessoa {
         string getCpf();
         string getRg();
         string getNascimento();
+        virtual bool cadastrar() = 0;
+        virtual bool verificaNome(string nomeVerificacao) = 0;
 };
 
 #endif
