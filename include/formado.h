@@ -15,6 +15,8 @@ class Formado : public Pessoa {
         Formado(string nome,string cpf,string rg,string dataNascimento, string matricula, string dataFormatura);
         string getFormatura();
         string getMatricula();
+        bool cadastrar() override;
+        bool verificaNascimento(string dataNascimento) override;
 };
 
 #endif

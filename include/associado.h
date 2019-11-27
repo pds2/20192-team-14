@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "string.h"
+#include "../include/aluno.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ class Associado: public Aluno {
         //string arrayAssociados[];
         int _registroCEU = 0;
     public:
-        void cadastro(Aluno &p1);
+        Associado(Aluno* aluno);
 };
 
 #endif

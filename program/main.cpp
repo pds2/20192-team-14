@@ -4,6 +4,7 @@
 #include "../include/aluno.h"
 #include "../include/professor.h"
 #include "../include/tecnico.h"
+#include "../include/formado.h"
 
 using namespace std;
 
@@ -17,8 +18,8 @@ void menu(){
 }
 
 int main() {
-    Aluno p1 = Aluno("Rainer","126.551.596-40","50.815.224.0","04/06/1998","2017068785");
-    p1.cadastrar();
+    Tecnico p1 = Tecnico("Rainer","50.815.224.0","126.551.596-40","04/06/1998","2017068785");
+    cout << p1.cadastrar() <<endl;
 
     /*
     int opcao=1;

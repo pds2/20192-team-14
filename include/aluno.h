@@ -14,7 +14,6 @@ class Aluno : public Pessoa {
         Aluno(string nome,string cpf,string rg,string dataNascimento, string matricula);
         string getMatricula();
         bool cadastrar() override;
-        bool verificaNome(string nomeVerificao) override;
         bool verificaNascimento(string dataNascimento) override;
 };
 

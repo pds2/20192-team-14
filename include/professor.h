@@ -13,6 +13,8 @@ class Professor : public Pessoa {
     public:
         Professor(string nome,string cpf,string rg,string dataNascimento, string registro);
         string getRegistro();
+        bool cadastrar() override;
+        bool verificaNascimento(string dataNascimento) override;
 };
 
 #endif
