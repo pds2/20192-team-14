@@ -14,7 +14,7 @@ class Pessoa {
         string _dataNascimento;
     public:
         Pessoa(){};
-        Pessoa(string nome,string cpf,string rg,string dataNascimento);
+        Pessoa(string nome,string rg,string cpf,string dataNascimento);
         string getNome();
         string getCpf();
         string getRg();

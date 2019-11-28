@@ -18,6 +18,7 @@ class Associado {
     public:
         vector<Associado>associados;
         void verAssociados();
+        bool existeSocio(string cpf);
         Associado(){};
         Associado(int tipo, string nome, string cpf, string rg, string dataNascimento, string documentoIdentificador);
 };

@@ -67,7 +67,7 @@ bool Pessoa::isValidDate(int dia, int mes, int ano)
         }
     } 
     // Agora basta conferirmos se dentre os meses que
-    // vão até o dia 31 se o limite não é extrapolado. 
+    // vão até o dia 30 se o limite não é extrapolado. 
     if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
         if (dia > 30) {
             return false; 
@@ -94,7 +94,7 @@ bool Pessoa::verificaNome(string nome) {
     if (nome != "") {
         return true;
     } else {
-        
+        return false;
     }
 }
 

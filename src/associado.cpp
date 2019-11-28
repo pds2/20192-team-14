@@ -31,3 +31,17 @@ void Associado::verAssociados() {
     }
     cout << "--------------------------------------------------\n";
 }
+
+/**
+* Verifica se existe associado cadastrado com o cpf indicado.
+**/
+bool Associado::existeSocio(string cpf){
+    bool check = false;
+    for(int i = 0; i < associados.size(); i++){
+        if((associados[i]._cpf).compare(cpf) == 0){
+            check = true;
+            return check;
+        }
+    }
+    return check;
+}
