@@ -11,6 +11,7 @@ class Aluno : public Pessoa {
     private:
         string _matricula;
     public:
+        Aluno(){};
         Aluno(string nome,string cpf,string rg,string dataNascimento, string matricula);
         string getMatricula();
         bool cadastrar() override;

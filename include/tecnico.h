@@ -11,6 +11,7 @@ class Tecnico : public Pessoa {
     private:
         string _registro;
     public:
+        Tecnico(){};
         Tecnico(string nome,string cpf,string rg,string dataNascimento, string registro);
         string getRegistro();
         bool cadastrar() override;

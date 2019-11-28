@@ -2,17 +2,24 @@
 #define CEU_ASSOCIADO_H
 
 #include <iostream>
+#include <vector>
 #include "string.h"
-#include "../include/aluno.h"
 
 using namespace std;
 
-class Associado: public Aluno {
+class Associado {
     private:
-        //string arrayAssociados[];
-        int _registroCEU = 0;
+        string _nome;
+        string _cpf;
+        int _identificadorTipo;
+        string _rg;
+        string _dataNascimento;
+        string _documentoUfmg;
     public:
-        Associado(Aluno* aluno);
+        vector<Associado>associados;
+        void verAssociados();
+        Associado(){};
+        Associado(int tipo, string nome, string cpf, string rg, string dataNascimento, string documentoIdentificador);
 };
 
 #endif

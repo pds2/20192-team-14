@@ -13,6 +13,7 @@ class Pessoa {
         string _rg;
         string _dataNascimento;
     public:
+        Pessoa(){};
         Pessoa(string nome,string cpf,string rg,string dataNascimento);
         string getNome();
         string getCpf();

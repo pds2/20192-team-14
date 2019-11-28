@@ -6,6 +6,9 @@
 
 using namespace std;
 
+///////////////////////////////////////////////////////////////
+///////////////////////// CONSTRUTOR /////////////////////////
+///////////////////////////////////////////////////////////////
 Pessoa::Pessoa(string nome, string rg, string cpf, string dataNascimento) {
     _nome = nome;
     _rg = rg;
@@ -13,6 +16,9 @@ Pessoa::Pessoa(string nome, string rg, string cpf, string dataNascimento) {
     _dataNascimento = dataNascimento;
 }
 
+///////////////////////////////////////////////////////////////
+/////////////////////////// GETTERS ///////////////////////////
+///////////////////////////////////////////////////////////////
 string Pessoa::getNome() {
     return _nome;
 }
@@ -28,6 +34,10 @@ string Pessoa::getRg() {
 string Pessoa::getNascimento() {
     return _dataNascimento;
 }
+
+///////////////////////////////////////////////////////////////
+////////////////////////// AUXILIARES /////////////////////////
+///////////////////////////////////////////////////////////////
 
 /**
  * Retorna um bool indicando se a data é valida
@@ -77,6 +87,9 @@ return (((ano % 4 == 0) &&
         ); 
 } 
 
+/**
+ * Confere se o nome é válido
+ */
 bool Pessoa::verificaNome(string nome) {
     if (nome != "") {
         return true;
@@ -85,6 +98,9 @@ bool Pessoa::verificaNome(string nome) {
     }
 }
 
+/**
+ * Confere se o cpf é válido
+ */
 bool Pessoa::verificaCpf(string cpfString) {
     cpfString.erase(remove(cpfString.begin(), cpfString.end(), '.'), cpfString.end());
     cpfString.erase(remove(cpfString.begin(), cpfString.end(), '-'), cpfString.end());
@@ -97,6 +113,9 @@ bool Pessoa::verificaCpf(string cpfString) {
     }
 }
 
+/**
+ * Confere se o rg é válido
+ */
 bool Pessoa::verificaRg(string rg) {
     if (rg != "") {
         return true;
@@ -105,6 +124,9 @@ bool Pessoa::verificaRg(string rg) {
     }
 }
 
+/**
+ * Confere se a matricula é válida
+ */
 bool Pessoa::verificaMatricula(string matricula) {
     if (matricula != "") {
         return true;
@@ -113,6 +135,9 @@ bool Pessoa::verificaMatricula(string matricula) {
     }
 }
 
+/**
+ * Confere se o registro é válido
+ */
 bool Pessoa::verificaRegistro(string registro) {
     if (registro != "") {
         return true;

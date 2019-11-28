@@ -11,6 +11,7 @@ class Professor : public Pessoa {
     private:
         string _registro;
     public:
+        Professor(){};
         Professor(string nome,string cpf,string rg,string dataNascimento, string registro);
         string getRegistro();
         bool cadastrar() override;

@@ -5,14 +5,31 @@
 
 using namespace std;
 
+///////////////////////////////////////////////////////////////
+///////////////////////// CONSTRUTOR /////////////////////////
+///////////////////////////////////////////////////////////////
 Tecnico::Tecnico(string nome, string rg, string cpf, string dataNascimento, string registro) : Pessoa (nome, rg, cpf, dataNascimento) {
     _registro = registro;
 }
 
+///////////////////////////////////////////////////////////////
+/////////////////////////// GETTERS ///////////////////////////
+///////////////////////////////////////////////////////////////
 string Tecnico::getRegistro() {
     return _registro;
 }
 
+///////////////////////////////////////////////////////////////
+////////////////////////// AUXILIARES /////////////////////////
+///////////////////////////////////////////////////////////////
+/**
+ * Verifica se a data é válida
+ * 
+ * string dataNascimento [Data formata no tipo dd/mm/YYYY]
+ * 
+ * @return bool
+ * 
+ */
 bool Tecnico::verificaNascimento(string dataNascimento) {
     int dia = atoi(dataNascimento.substr(0,2).c_str());
     int mes = atoi(dataNascimento.substr(3,2).c_str());
@@ -23,6 +40,9 @@ bool Tecnico::verificaNascimento(string dataNascimento) {
     return retorno;
 }
 
+/**
+ * Faz os testes de verificação dos inputs passados.
+ */
 bool Tecnico::cadastrar() {
     bool testeNome = Tecnico::verificaNome(_nome);
     bool testeNascimento = verificaNascimento(_dataNascimento);
