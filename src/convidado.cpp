@@ -1,4 +1,4 @@
-#include "../include/professor.h"
+#include "../include/convidado.h"
 #include <iostream>
 #include "string.h"
 #include <string>
@@ -10,16 +10,8 @@ using namespace std;
 ///////////////////////////////////////////////////////////////
 ///////////////////////// CONSTRUTOR /////////////////////////
 ///////////////////////////////////////////////////////////////
-Professor::Professor(string nome, string rg, string cpf, string dataNascimento, string registro) : Pessoa (nome, rg, cpf, dataNascimento) {
-    _registro = registro;
-}
+Convidado::Convidado(string nome, string rg, string cpf, string dataNascimento) : Pessoa (nome, rg, cpf, dataNascimento) {}
 
-///////////////////////////////////////////////////////////////
-/////////////////////////// GETTERS ///////////////////////////
-///////////////////////////////////////////////////////////////
-string Professor::getRegistro() {
-    return _registro;
-}
 
 ///////////////////////////////////////////////////////////////
 ////////////////////////// AUXILIARES /////////////////////////
@@ -32,31 +24,28 @@ string Professor::getRegistro() {
  * @return bool
  * 
  */
-bool Professor::verificaNascimento(string dataNascimento) {
+bool Convidado::verificaNascimento(string dataNascimento) {
     int dia = atoi(dataNascimento.substr(0,2).c_str());
     int mes = atoi(dataNascimento.substr(3,2).c_str());
     int ano = atoi(dataNascimento.substr(6,4).c_str());
-
-    bool retorno = Professor::isValidDate(dia, mes, ano);
-
+    // Confere se a data é válida
+    bool retorno = Convidado::isValidDate(dia, mes, ano);
     return retorno;
 }
 
 /**
  * Faz os testes de verificação dos inputs passados.
  */
-bool Professor::cadastrar() {
-    bool testeNome = Professor::verificaNome(_nome);
+bool Convidado::cadastrar() {
+    bool testeNome = Convidado::verificaNome(_nome);
     bool testeNascimento = verificaNascimento(_dataNascimento);
-    bool testeCpf = Professor::verificaCpf(_cpf);
-    bool testeRg = Professor::verificaRg(_rg);
-    bool testeRegistro = Professor::verificaRegistro(_registro);
-
+    bool testeCpf = Convidado::verificaCpf(_cpf);
+    bool testeRg = Convidado::verificaRg(_rg);
+    // Confere se todos os testes foram positivos
     if (testeNome == true &&
         testeNascimento == true &&
         testeCpf == true &&
-        testeRg == true &&
-        testeRegistro == true) {
+        testeRg == true) {
             return true;
         } else {
             return false;

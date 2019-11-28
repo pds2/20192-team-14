@@ -2,13 +2,14 @@
 #include "../include/aluno.h"
 #include <iostream>
 #include "string.h"
+#include <string>
 
 using namespace std;
 
 ///////////////////////////////////////////////////////////////
 ///////////////////////// CONSTRUTOR /////////////////////////
 ///////////////////////////////////////////////////////////////
-Associado::Associado(int tipo, string nome, string cpf, string rg, string dataNascimento, string documentoUfmg) {
+Associado::Associado(int tipo, string nome, string rg, string cpf, string dataNascimento, string documentoUfmg) {
     _identificadorTipo = tipo;
     _nome = nome;
     _cpf = cpf;
@@ -38,7 +39,7 @@ void Associado::verAssociados() {
 bool Associado::existeSocio(string cpf){
     bool check = false;
     for(int i = 0; i < associados.size(); i++){
-        if((associados[i]._cpf).compare(cpf) == 0){
+        if(((associados[i]._cpf).compare(cpf)) == 0){
             check = true;
             return check;
         }

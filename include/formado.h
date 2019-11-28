@@ -13,7 +13,7 @@ class Formado : public Pessoa {
         string _dataFormatura;
     public:
         Formado(){};
-        Formado(string nome,string cpf,string rg,string dataNascimento, string matricula, string dataFormatura);
+        Formado(string nome,string rg,string cpf,string dataNascimento, string matricula, string dataFormatura);
         string getFormatura();
         string getMatricula();
         bool cadastrar() override;

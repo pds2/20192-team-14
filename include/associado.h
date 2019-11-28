@@ -20,7 +20,7 @@ class Associado {
         void verAssociados();
         bool existeSocio(string cpf);
         Associado(){};
-        Associado(int tipo, string nome, string cpf, string rg, string dataNascimento, string documentoIdentificador);
+        Associado(int tipo, string nome, string rg, string cpf, string dataNascimento, string documentoIdentificador);
 };
 
 #endif

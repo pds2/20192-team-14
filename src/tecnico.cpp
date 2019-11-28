@@ -1,7 +1,9 @@
 #include "../include/tecnico.h"
 #include <iostream>
 #include "string.h"
+#include <string>
 #include "../include/excecoes.h"
+#include <cstdlib>
 
 using namespace std;
 

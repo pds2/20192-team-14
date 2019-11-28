@@ -12,7 +12,7 @@ class Aluno : public Pessoa {
         string _matricula;
     public:
         Aluno(){};
-        Aluno(string nome,string cpf,string rg,string dataNascimento, string matricula);
+        Aluno(string nome,string rg,string cpf,string dataNascimento, string matricula);
         string getMatricula();
         bool cadastrar() override;
         bool verificaNascimento(string dataNascimento) override;

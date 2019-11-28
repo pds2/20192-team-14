@@ -1,14 +1,15 @@
 #include <iostream>
 #include "../include/convite.h"
-#include "../include/pessoa.h"
+#include "../include/convidado.h"
 #include "string.h"
+#include <string>
 
 using namespace std;
 
 ///////////////////////////////////////////////////////////////
 ///////////////////////// CONSTRUTOR /////////////////////////
 ///////////////////////////////////////////////////////////////
-Convite::Convite(Pessoa convidado, string cpfSocio, string dataConvite) {
+Convite::Convite(Convidado convidado, string cpfSocio, string dataConvite) {
     _convidado = convidado;
     _cpfSocio = cpfSocio;
     _dataConvite = dataConvite;
@@ -22,11 +23,14 @@ Convite::Convite(Pessoa convidado, string cpfSocio, string dataConvite) {
  */
 void Convite::verConvites() {
     string index;
-    for(int i = 0 ; i < convites.size(); i++){
-        index = to_string(i+1);
-        cout << index + " - " + convites[i]._convidado._nome + "/" + convites[i]._convidado._cpf + "/" + convites[i]._convidado._rg + "/" + convites[i]._convidado._dataNascimento + "/" + convites[i]._cpfSocio + "/" + convites[i]._dataConvite << endl;
+    if(convites.size() != 0){
+        for(int i = 0 ; i < convites.size(); i++){
+            index = to_string(i + 1);
+            cout << index + " - Convidado:   " + convites[i]._convidado.getNome() + " / " + convites[i]._convidado.getCpf() + " / " + convites[i]._convidado.getRg() + " / " + convites[i]._convidado.getNascimento() + " Socio: " + convites[i]._cpfSocio + " Data uso: " + convites[i]._dataConvite << endl;
+        }
+    } else {
+        cout << "Ainda nao existem convites." << endl;
     }
-    cout << "--------------------------------------------------\n";
 }
 
 /**
@@ -37,8 +41,8 @@ void Convite::verConviteX(int x){
     int i = x - 1;
     if((x > 0) && (x <= convites.size())){
         index = to_string(x);
-        cout << index + " - " + convites[i]._convidado._nome + "/" + convites[i]._convidado._cpf + "/" + convites[i]._convidado._rg + "/" + convites[i]._convidado._dataNascimento + "/" + convites[i]._cpfSocio + "/" + convites[i]._dataConvite << endl;
+        cout << index + " - Convidado:  " + convites[i]._convidado.getNome() + " / " + convites[i]._convidado.getCpf() + " / " + convites[i]._convidado.getRg() + " / " + convites[i]._convidado.getNascimento() + " Socio: " + convites[i]._cpfSocio + " Data uso: " + convites[i]._dataConvite << endl;
     } else {
-        cout << endl << "Nao existe o convite: " + index << endl;
+        cout << "Nao existe o convite: " + index << endl;
     }
 }

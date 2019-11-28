@@ -4,13 +4,13 @@
 #include <iostream>
 #include <vector>
 #include "string.h"
-#include "../include/pessoa.h"
+#include "../include/convidado.h"
 
 using namespace std;
 
 class Convite {
     private:
-        Pessoa _convidado;
+        Convidado _convidado;
         string _cpfSocio;
         string _dataConvite;
     public:
@@ -18,7 +18,7 @@ class Convite {
         void verConvites();
         void verConviteX(int x);
         Convite(){};
-        Convite(Pessoa convidado,string cpfSocio, string dataConvite);
+        Convite(Convidado convidado,string cpfSocio, string dataConvite);
 };
 
 #endif

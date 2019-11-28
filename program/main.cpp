@@ -7,6 +7,7 @@
 #include "../include/formado.h"
 #include "../include/associado.h"
 #include "../include/convite.h"
+#include "../include/convidado.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ Aluno aluno;
 Formado formado;
 Professor professor;
 Tecnico tecnico;
-Pessoa pessoa;
+Convidado convidado;
 Convite conviteFinal;
 Convite convite;
 
@@ -30,7 +31,7 @@ void menu(){
     cout << "Escolha o que deseja fazer: " << endl;
     cout << "0 - Sair" << endl;
     cout << "1 - Gerar um novo cadastro" << endl;
-    cout << "2 - Gerar um convite" << endl;
+    cout << "2 - Emitir ou acessar convites" << endl;
     cout << "3 - Ver Associados" << endl;
     cout << "--------------------------------------------------\n";
 }
@@ -205,50 +206,17 @@ void menuCadastroTecnico() {
 }
 
 /**
-* Método que apresenta o menu de Convite.
-**/
-void menuConvite(){
-    int opcao, codigo;
-    cout << "Voce gostaria de:" << endl;
-    cout << "0 - Voltar" << endl;
-    cout << "1 - Emitir um novo convite" << endl;
-    cout << "2 - Procurar um convite" << endl;
-    cout << "3 - Exibir a lista de convites" << endl;
-    cout << "--------------------------------------------------\n";
-    cin >> opcao;
-    switch(opcao){
-        case 1:
-            menuEmissaoConvite();
-            break;
-        case 2:
-            cout << "Qual o codigo do convite:" << endl;
-            cin >> codigo;
-            cout << "--------------------------------------------------\n";
-            convite.verConviteX(codigo);
-            cout << "--------------------------------------------------\n";
-            break;
-        case 3:
-            cout << "Lista de convites:" << endl;
-            cout << "--------------------------------------------------\n";
-            convite.verConvites();
-            cout << "--------------------------------------------------\n";
-            break;
-        default:
-            break;
-    }
-}
-
-/**
 * Método que apresenta o menu de Emissão de Convite.
 **/
 void menuEmissaoConvite(){
     string cpfSocio, nomeConvidado, cpfConvidado, rgConvidado, dataNascimentoConvidado, dataConvite;
-    int codigo;
+    string codigo;
+    bool testeConvidado;
     cout << "Emissao de convite:" << endl << "Qual o cpf do socio que esta convidando?" << endl;
     cin >> cpfSocio;
     //Confere se existe sócio cadastrado com o cpf indicado.
     if(!socio.existeSocio(cpfSocio)){
-        cout << "Nao existe socio com cpf: " + cpfSocio << endl;
+        cout << endl << "Nao existe socio com cpf: " + cpfSocio << endl;
     } else {
         cout << "Socio identificado. Forneca os dados do convidado:" << endl << "Nome:" << endl;
         cin >> nomeConvidado;
@@ -260,16 +228,63 @@ void menuEmissaoConvite(){
         cin >> dataNascimentoConvidado;
         cout << "Data em que o convidado fara uso do CEU:" << endl; 
         cin >> dataConvite;
-        pessoa = Pessoa(nomeConvidado, rgConvidado, cpfConvidado, dataNascimentoConvidado);
-        conviteFinal = Convite(pessoa, cpfSocio, dataConvite);
-        convite.convites.push_back(conviteFinal);
-        codigo = convite.convites.size();
-        cout << "--------------------------------------------------\n";
-        cout << "O convite foi emitido com sucesso. Seu codigo e: " + codigo << endl;
-        convite.verConviteX(codigo);
-        cout << "--------------------------------------------------\n";
+        //Cria um objeto de convidado
+        convidado = Convidado(nomeConvidado, rgConvidado, cpfConvidado, dataNascimentoConvidado);
+        //Confere se os dados estão válidos
+        testeConvidado = convidado.cadastrar();
+        if(testeConvidado){
+            //Cria objeto de convite
+            conviteFinal = Convite(convidado, cpfSocio, dataConvite);
+            //Adiciona convite na lista de convites
+            convite.convites.push_back(conviteFinal);
+            codigo = to_string(convite.convites.size());
+            cout << "--------------------------------------------------\n";
+            cout << "O convite foi emitido com sucesso. Seu codigo e: " + codigo << endl;
+            convite.verConviteX(convite.convites.size());
+            cout << "--------------------------------------------------\n";
+        } else {
+            cout << "Houve um problema no cadastro do convidado. Verifique os dados e tente novamente." << endl;
+        }
     }
 }
+
+/**
+* Método que apresenta o menu de Convite.
+**/
+void menuConvite(){
+    int opcao, codigo;
+    do{
+        cout << "Voce gostaria de:" << endl;
+        cout << "0 - Voltar" << endl;
+        cout << "1 - Emitir um novo convite" << endl;
+        cout << "2 - Procurar um convite" << endl;
+        cout << "3 - Exibir a lista de convites" << endl;
+        cout << "--------------------------------------------------\n";
+        cin >> opcao;
+        switch(opcao){
+            case 1:
+                menuEmissaoConvite();
+                break;
+            case 2:
+                cout << "Qual o codigo do convite:" << endl;
+                cin >> codigo;
+                cout << "--------------------------------------------------\n";
+                convite.verConviteX(codigo);
+                cout << "--------------------------------------------------\n";
+                break;
+            case 3:
+                cout << "Lista de convites:" << endl;
+                cout << "--------------------------------------------------\n";
+                convite.verConvites();
+                cout << "--------------------------------------------------\n";
+                break;
+            default:
+                break;
+        }
+        cout << endl;
+    } while(opcao != 0);
+}
+
 
 int main() {
     // Inicialização das variaveis que irão controlar o menu.
