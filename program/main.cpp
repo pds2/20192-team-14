@@ -36,6 +36,8 @@ void menu(){
     cout << "--------------------------------------------------\n";
 }
 
+// ------------------------------------------------------------------------------------------------------
+
 /**
  * Método que irá apresentar o Menu de Cadastro. 
  */
@@ -83,6 +85,8 @@ void cadastroProfissional(int tipoProfissional) {
     }
 }
 
+// ------------------------------------------------------------------------------------------------------
+
 /**
  * Método que apresenta o menu de cadastro para Estudantes. 
  */
@@ -112,6 +116,8 @@ void menuCadastroEstudante() {
     }
     cout << "--------------------------------------------------\n";
 }
+
+// ------------------------------------------------------------------------------------------------------
 
 /**
  * Método que apresenta o menu de cadastro para Estudantes Formados. 
@@ -145,6 +151,8 @@ void menuCadastroFormado() {
     cout << "--------------------------------------------------\n";
 }
 
+// ------------------------------------------------------------------------------------------------------
+
 /**
  * Método que apresenta o menu de cadastro para Professores. 
  */
@@ -175,6 +183,8 @@ void menuCadastroProfessor() {
     cout << "--------------------------------------------------\n";
 }
 
+// ------------------------------------------------------------------------------------------------------
+
 /**
  * Método que apresenta o menu de cadastro para Profissional Técnico. 
  */
@@ -204,6 +214,8 @@ void menuCadastroTecnico() {
     }
     cout << "--------------------------------------------------\n";
 }
+
+// ------------------------------------------------------------------------------------------------------
 
 /**
 * Método que apresenta o menu de Emissão de Convite.
@@ -248,6 +260,8 @@ void menuEmissaoConvite(){
     }
 }
 
+// ------------------------------------------------------------------------------------------------------
+
 /**
 * Método que apresenta o menu de Convite.
 **/
@@ -285,6 +299,7 @@ void menuConvite(){
     } while(opcao != 0);
 }
 
+// ------------------------------------------------------------------------------------------------------
 
 int main() {
     // Inicialização das variaveis que irão controlar o menu.
@@ -326,6 +341,6 @@ int main() {
            socio.verAssociados(); 
         }
 	}
-	cout << "Obrigado por usar!";
+	cout << "Obrigado por usar!" << endl;
     return 0;
 }

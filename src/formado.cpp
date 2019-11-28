@@ -21,6 +21,8 @@ string Formado::getMatricula() {
     return _matricula;
 }
 
+// ------------------------------------------------------------------------------------------------------
+
 string Formado::getFormatura() {
         return _dataFormatura;
 }
@@ -50,6 +52,8 @@ bool Formado::cadastrar() {
             return false;
     }
 }
+
+// ------------------------------------------------------------------------------------------------------
 
 /**
  * Verifica se a data é válida
